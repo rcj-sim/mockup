@@ -13,9 +13,9 @@ int main()
 	World w;
 	Viewer v(w);
 	
-	auto& f = w.addThing(std::make_unique<Field>());
-	auto& b = w.addThing(std::make_unique<Ball>());
-	auto& r = w.addThing(std::make_unique<Robot>());
+	w.addThing(std::make_unique<Field>());
+	w.addThing(std::make_unique<Robot>());
+	w.addBall(std::make_unique<Ball>());
 
 	while (!v.done()) {
 		auto t = std::chrono::steady_clock::now();

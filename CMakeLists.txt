@@ -1,6 +1,6 @@
 
 add_executable(mockup)
-target_sources(mockup PRIVATE mockup.cpp Viewer.cpp World.cpp Thing.cpp Field.cpp Ball.cpp Robot.cpp)
+target_sources(mockup PRIVATE mockup.cpp Viewer.cpp World.cpp Thing.cpp Field.cpp Ball.cpp Robot.cpp Sensor.cpp)
 
 target_include_directories(mockup PRIVATE ${BULLET_INCLUDE_DIRS})
 target_link_libraries(mockup PRIVATE ${BULLET_LIBRARIES})

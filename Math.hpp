@@ -38,3 +38,20 @@ public:
 	}
 };
 
+class Transform:
+	public btTransform
+{
+public:
+	using btTransform::btTransform;
+
+	Vec3 getVector() const
+	{
+		return Vec3(getOrigin());
+	}
+
+	Quat getQuat() const
+	{
+		return Quat(getRotation());
+	}
+};
+

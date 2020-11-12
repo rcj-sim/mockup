@@ -1,7 +1,8 @@
 #include "World.hpp"
-#include <iostream>
+#include "Ball.hpp"
 
-World::World()
+World::World():
+	simulationTime(0)
 {
 	broadphase = new btDbvtBroadphase();
 	collisionConfig = new btDefaultCollisionConfiguration();
@@ -30,10 +31,24 @@ const osg::ref_ptr<osg::Group>& World::getOSGScene() const
 
 const std::unique_ptr<Thing>& World::addThing(std::unique_ptr<Thing> thing)
 {
-	dynamics->addRigidBody(thing->getRigidBody());
-	scene->addChild(thing->getSceneNode());
+	for (auto& s: thing->getShapes()) {
+		auto* b = s.getBulletBody();
+		dynamics->addRigidBody(b);
+		scene->addChild(s.getOSGNode());
+	}
 	auto it = things.insert(things.end(), std::move(thing));
 	return *it;
+}
+
+void World::addBall(std::unique_ptr<Ball> newBall)
+{
+	ball = newBall.get();
+	addThing(std::move(newBall));
+}
+
+const Ball* World::getBall() const
+{
+	return ball;
 }
 
 const std::vector<std::unique_ptr<Thing>>& World::getThings() const
@@ -44,13 +59,19 @@ const std::vector<std::unique_ptr<Thing>>& World::getThings() const
 void World::step()
 {
 	dynamics->stepSimulation(0.01, 30);
-	update();
+	simulationTime += std::chrono::milliseconds(10);
+	updateThings();
 }
 
-void World::update()
+void World::updateThings()
 {
 	for (auto& t: things) {
-		t->update();
+		t->update(*this);
 	}
+}
+
+const std::chrono::milliseconds World::getSimulationTime() const
+{
+	return simulationTime;
 }
 

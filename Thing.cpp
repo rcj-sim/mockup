@@ -1,21 +1,32 @@
 #include "Thing.hpp"
 #include "Math.hpp"
 
-Thing::Thing()
+#include <osg/Geode>
+
+OSGBulletPair::OSGBulletPair(
+		osg::ref_ptr<osg::PositionAttitudeTransform> osgNode,
+		btRigidBody* btBody):
+	osgNode(osgNode),
+	btBody(btBody)
+{}
+
+OSGBulletPair::OSGBulletPair(osg::Geode* osgGeode,
+		btRigidBody* btBody):
+	osgNode(new osg::PositionAttitudeTransform()),
+	btBody(btBody)
 {
-	osgNode = new osg::PositionAttitudeTransform();
+	osgNode->addChild(osgGeode);
 }
 
-Thing::Thing(Thing &&src) noexcept:
-	osgNode(src.osgNode),
-	btBody(src.btBody)
+OSGBulletPair::OSGBulletPair(OSGBulletPair&& old):
+	osgNode(old.osgNode),
+	btBody(old.btBody)
 {
-	src.osgNode = nullptr;
-	src.btBody = nullptr;
+	old.osgNode = nullptr;
+	old.btBody = nullptr;
 }
 
-
-Thing::~Thing()
+OSGBulletPair::~OSGBulletPair()
 {
 	if (btBody) {
 		auto *cs = btBody->getCollisionShape();
@@ -30,24 +41,48 @@ Thing::~Thing()
 	}
 }
 
-btRigidBody *Thing::getRigidBody()
+btRigidBody* OSGBulletPair::getBulletBody()
 {
 	return btBody;
 }
 
-osg::ref_ptr<osg::PositionAttitudeTransform> Thing::getSceneNode()
+osg::ref_ptr<osg::PositionAttitudeTransform> OSGBulletPair::getOSGNode()
 {
 	return osgNode;
 }
 
-void Thing::update()
+void OSGBulletPair::update()
 {
 	if (!btBody || !osgNode) {
 		return;
 	}
-	btTransform trans;
-	btBody->getMotionState()->getWorldTransform(trans);
-	osgNode->setPosition(Vec3(trans.getOrigin()));
-	osgNode->setAttitude(Quat(trans.getRotation()));
+	Transform transform;
+	btBody->getMotionState()->getWorldTransform(transform);
+	osgNode->setPosition(transform.getVector());
+	osgNode->setAttitude(transform.getQuat());
+}
+
+void Thing::update(const World&)
+{
+	for (auto& s: shapes) {
+		s.update();
+	}
+}
+
+std::vector<OSGBulletPair>& Thing::getShapes()
+{
+	return shapes;
+}
+
+void LocateableThing::update(const World& w)
+{
+	Thing::update(w);
+	auto& s = shapes[0];
+	s.getBulletBody()->getMotionState()->getWorldTransform(transform);
+}
+
+const Transform& LocateableThing::getTransform() const
+{
+	return transform;
 }
 

@@ -5,10 +5,9 @@
 class Field:
 	public Thing
 {
-
-	void createOSGGeode();
-	void createBulletBody();
 public:
 	Field();
+
+	virtual void update(const World&) override;
 };
 
