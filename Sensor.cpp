@@ -31,7 +31,6 @@ void SimpleBallDirectionSensor::update(const World& state)
 	robotQuat.getEulerZYX(z, y, x);
 	float gamma = atan2(deltaVec.y(), deltaVec.x());
 	reading = fmod(gamma - z + PI, 2*PI) - PI;
-	std::cout << rad2deg(gamma) << " " << rad2deg(z) << " " << rad2deg(reading) << std::endl;
 }
 
 const float SimpleBallDirectionSensor::getReading() const
