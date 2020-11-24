@@ -1,5 +1,5 @@
-#include "Thing.hpp"
-#include "Math.hpp"
+#include "Thing.h"
+#include "Math.h"
 
 #include <osg/Geode>
 

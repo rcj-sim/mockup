@@ -1,4 +1,4 @@
-#include "Ball.hpp"
+#include "Ball.h"
 
 #include <osg/Geode>
 #include <osg/ShapeDrawable>

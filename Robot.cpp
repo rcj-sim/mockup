@@ -1,5 +1,5 @@
-#include "Robot.hpp"
-#include "World.hpp"
+#include "Robot.h"
+#include "World.h"
 
 #include <osg/Geode>
 #include <osg/ShapeDrawable>

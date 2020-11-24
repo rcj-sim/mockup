@@ -1,4 +1,4 @@
-#include "Field.hpp"
+#include "Field.h"
 
 #include <osg/Geode>
 #include <osg/ShapeDrawable>

@@ -1,4 +1,4 @@
-#include "Viewer.hpp"
+#include "Viewer.h"
 #include <osgGA/TrackballManipulator>
 
 Viewer::Viewer(World& world):

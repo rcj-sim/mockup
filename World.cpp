@@ -1,5 +1,5 @@
-#include "World.hpp"
-#include "Ball.hpp"
+#include "World.h"
+#include "Ball.h"
 
 World::World():
 	simulationTime(0)

@@ -1,7 +1,7 @@
-#include "Sensor.hpp"
-#include "World.hpp"
-#include "Ball.hpp"
-#include "Robot.hpp"
+#include "Sensor.h"
+#include "World.h"
+#include "Ball.h"
+#include "Robot.h"
 
 #include <cmath>
 #include <iostream>
