@@ -1,7 +1,8 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_ROBOT_H
+#define RCJSIM_MOCKUP_ROBOT_H
 
-#include "Thing.hpp"
-#include "Sensor.hpp"
+#include "Thing.h"
+#include "Sensor.h"
 
 class Robot:
 	public LocateableThing
@@ -17,3 +18,4 @@ public:
 };
 
 
+#endif // RCJSIM_MOCKUP_ROBOT_H

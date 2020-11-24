@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_WORLD_H
+#define RCJSIM_MOCKUP_WORLD_H
 
 #include <vector>
 #include <memory>
@@ -6,7 +7,7 @@
 #include <btBulletDynamicsCommon.h>
 #include <osg/Group>
 
-#include "Thing.hpp"
+#include "Thing.h"
 
 class Ball;
 
@@ -44,3 +45,4 @@ public:
 	void updateThings();
 };
 
+#endif // RCJSIM_MOCKUP_WORLD_H

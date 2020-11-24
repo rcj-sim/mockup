@@ -1,6 +1,7 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_BALL_H
+#define RCJSIM_MOCKUP_BALL_H
 
-#include "Thing.hpp"
+#include "Thing.h"
 
 class Ball:
 	public LocateableThing
@@ -11,3 +12,4 @@ public:
 };
 
 
+#endif // RCJSIM_MOCKUP_BALL_H

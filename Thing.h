@@ -1,9 +1,10 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_THING_H
+#define RCJSIM_MOCKUP_THING_H
 
 #include <osg/PositionAttitudeTransform>
 #include <btBulletDynamicsCommon.h>
 #include <vector>
-#include "Math.hpp"
+#include "Math.h"
 
 class World;
 
@@ -49,3 +50,4 @@ public:
 	virtual void update(const World& state);
 };
 
+#endif // RCJSIM_MOCKUP_THING_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_SENSOR_H
+#define RCJSIM_MOCKUP_SENSOR_H
 
 class Robot;
 class World;
@@ -26,3 +27,4 @@ public:
 	virtual void update(const World& state) override;
 };
 
+#endif // RCJSIM_MOCKUP_SENSOR_H

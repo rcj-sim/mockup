@@ -1,7 +1,8 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_VIEWER_H
+#define RCJSIM_MOCKUP_VIEWER_H
 
 #include <osgViewer/Viewer>
-#include "World.hpp"
+#include "World.h"
 
 class Viewer
 {
@@ -17,3 +18,4 @@ public:
 	void frame();
 };
 
+#endif // RCJSIM_MOCKUP_VIEWER_H

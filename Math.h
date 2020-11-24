@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RCJSIM_MOCKUP_MATH_H
+#define RCJSIM_MOCKUP_MATH_H
 
 #include <LinearMath/btVector3.h>
 
@@ -55,3 +56,4 @@ public:
 	}
 };
 
+#endif // RCJSIM_MOCKUP_MATH_H
