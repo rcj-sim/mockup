@@ -1,7 +1,11 @@
 #ifndef RCJSIM_MOCKUP_MATH_H
 #define RCJSIM_MOCKUP_MATH_H
 
+#include <LinearMath/btQuaternion.h>
+#include <LinearMath/btTransform.h>
 #include <LinearMath/btVector3.h>
+#include <osg/Quat>
+#include <osg/Vec3d>
 
 class Vec3: public btVector3 {
 public:
