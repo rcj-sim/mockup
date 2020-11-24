@@ -1,11 +1,10 @@
 #ifndef RCJSIM_MOCKUP_VIEWER_H
 #define RCJSIM_MOCKUP_VIEWER_H
 
-#include <osgViewer/Viewer>
 #include "World.h"
+#include <osgViewer/Viewer>
 
-class Viewer
-{
+class Viewer {
 private:
 	osgViewer::Viewer viewer;
 	World& world;

@@ -1,15 +1,14 @@
 #include "Sensor.h"
-#include "World.h"
 #include "Ball.h"
 #include "Robot.h"
+#include "World.h"
 
 #include <cmath>
 #include <iostream>
 
 constexpr const float PI = 3.1415;
 
-Sensor::Sensor(const Robot& robot):
-	robot(robot)
+Sensor::Sensor(const Robot& robot): robot(robot)
 {}
 
 Sensor::~Sensor()
@@ -30,11 +29,10 @@ void SimpleBallDirectionSensor::update(const World& state)
 	btScalar x, y, z;
 	robotQuat.getEulerZYX(z, y, x);
 	float gamma = atan2(deltaVec.y(), deltaVec.x());
-	reading = fmod(gamma - z + PI, 2*PI) - PI;
+	reading = fmod(gamma - z + PI, 2 * PI) - PI;
 }
 
 const float SimpleBallDirectionSensor::getReading() const
 {
 	return reading;
 }
-

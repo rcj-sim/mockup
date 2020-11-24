@@ -1,18 +1,18 @@
+#include "Ball.h"
+#include "Field.h"
+#include "Robot.h"
 #include "Viewer.h"
 #include "World.h"
-#include "Field.h"
-#include "Ball.h"
-#include "Robot.h"
 
-#include <iostream>
 #include <chrono>
+#include <iostream>
 #include <thread>
 
 int main()
 {
 	World w;
 	Viewer v(w);
-	
+
 	w.addThing(std::make_unique<Field>());
 	w.addThing(std::make_unique<Robot>());
 	w.addBall(std::make_unique<Ball>());

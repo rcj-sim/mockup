@@ -3,9 +3,7 @@
 
 #include "Thing.h"
 
-class Field:
-	public Thing
-{
+class Field: public Thing {
 public:
 	Field();
 

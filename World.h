@@ -1,18 +1,17 @@
 #ifndef RCJSIM_MOCKUP_WORLD_H
 #define RCJSIM_MOCKUP_WORLD_H
 
-#include <vector>
-#include <memory>
-#include <chrono>
 #include <btBulletDynamicsCommon.h>
+#include <chrono>
+#include <memory>
 #include <osg/Group>
+#include <vector>
 
 #include "Thing.h"
 
 class Ball;
 
-class World
-{
+class World {
 private:
 	btDbvtBroadphase* broadphase;
 	btDefaultCollisionConfiguration* collisionConfig;

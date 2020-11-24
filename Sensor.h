@@ -4,8 +4,7 @@
 class Robot;
 class World;
 
-class Sensor
-{
+class Sensor {
 protected:
 	const Robot& robot;
 
@@ -15,9 +14,7 @@ public:
 	virtual void update(const World& state) = 0;
 };
 
-class SimpleBallDirectionSensor:
-	public Sensor
-{
+class SimpleBallDirectionSensor: public Sensor {
 private:
 	float reading;
 

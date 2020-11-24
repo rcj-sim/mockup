@@ -4,14 +4,12 @@
 #include <osg/Geode>
 
 OSGBulletPair::OSGBulletPair(
-		osg::ref_ptr<osg::PositionAttitudeTransform> osgNode,
-		btRigidBody* btBody):
+	osg::ref_ptr<osg::PositionAttitudeTransform> osgNode, btRigidBody* btBody):
 	osgNode(osgNode),
 	btBody(btBody)
 {}
 
-OSGBulletPair::OSGBulletPair(osg::Geode* osgGeode,
-		btRigidBody* btBody):
+OSGBulletPair::OSGBulletPair(osg::Geode* osgGeode, btRigidBody* btBody):
 	osgNode(new osg::PositionAttitudeTransform()),
 	btBody(btBody)
 {
@@ -29,11 +27,11 @@ OSGBulletPair::OSGBulletPair(OSGBulletPair&& old):
 OSGBulletPair::~OSGBulletPair()
 {
 	if (btBody) {
-		auto *cs = btBody->getCollisionShape();
+		auto* cs = btBody->getCollisionShape();
 		if (cs) {
 			delete cs;
 		}
-		auto *ms = btBody->getMotionState();
+		auto* ms = btBody->getMotionState();
 		if (ms) {
 			delete ms;
 		}
@@ -85,4 +83,3 @@ const Transform& LocateableThing::getTransform() const
 {
 	return transform;
 }
-

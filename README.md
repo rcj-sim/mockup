@@ -1,4 +1,4 @@
-# rcj-sim/mockup
+#rcj - sim / mockup
 
 This is a small prototype for experimentation with the physics and
 graphics libraries of [rcj-sim](https://github.com/rcj-sim/rcj-sim).
@@ -22,4 +22,3 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-

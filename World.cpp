@@ -1,14 +1,14 @@
 #include "World.h"
 #include "Ball.h"
 
-World::World():
-	simulationTime(0)
+World::World(): simulationTime(0)
 {
 	broadphase = new btDbvtBroadphase();
 	collisionConfig = new btDefaultCollisionConfiguration();
 	dispatch = new btCollisionDispatcher(collisionConfig);
 	solver = new btSequentialImpulseConstraintSolver();
-	dynamics = new btDiscreteDynamicsWorld(dispatch, broadphase, solver, collisionConfig);
+	dynamics = new btDiscreteDynamicsWorld(
+		dispatch, broadphase, solver, collisionConfig);
 
 	scene = new osg::Group();
 
@@ -74,4 +74,3 @@ const std::chrono::milliseconds World::getSimulationTime() const
 {
 	return simulationTime;
 }
-
