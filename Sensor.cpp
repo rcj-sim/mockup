@@ -8,11 +8,9 @@
 
 constexpr const float PI = 3.1415;
 
-Sensor::Sensor(const Robot& robot): robot(robot)
-{}
+Sensor::Sensor(const Robot& robot): robot(robot) {}
 
-Sensor::~Sensor()
-{}
+Sensor::~Sensor() {}
 
 constexpr float rad2deg(const float rad)
 {

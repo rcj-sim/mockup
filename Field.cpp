@@ -77,5 +77,4 @@ Field::Field(): Thing()
 	shapes.emplace_back(createYWallGeode(-1), createYWallBody(-1));
 }
 
-void Field::update(const World&)
-{}
+void Field::update(const World&) {}
