@@ -1,5 +1,4 @@
-#rcj - sim / mockup
-
+# rcj-sim/mockup
 This is a small prototype for experimentation with the physics and
 graphics libraries of [rcj-sim](https://github.com/rcj-sim/rcj-sim).
 
